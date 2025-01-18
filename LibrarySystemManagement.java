@@ -1,11 +1,11 @@
-// Class representing a Book
+
 class Book {
     private String title;
     private String author;
     private String isbn;
     private boolean isAvailable;
 
-    // Constructor
+    
     public Book(String title, String author, String isbn) {
         this.title = title;
         this.author = author;
@@ -13,7 +13,7 @@ class Book {
         this.isAvailable = true;
     }
 
-    // Getters and setters
+    
     public String getTitle() {
         return title;
     }
@@ -46,7 +46,7 @@ class Book {
         isAvailable = available;
     }
 
-    // Overriding toString method
+    
     @Override
     public String toString() {
         return "Book{" +
@@ -58,20 +58,20 @@ class Book {
     }
 }
 
-// Class representing a Library Member
+
 class LibraryMember {
     private String name;
     private int memberId;
     private List<Book> borrowedBooks;
 
-    // Constructor
+
     public LibraryMember(String name, int memberId) {
         this.name = name;
         this.memberId = memberId;
         this.borrowedBooks = new ArrayList<>();
     }
 
-    // Getters and setters
+    
     public String getName() {
         return name;
     }
@@ -92,7 +92,7 @@ class LibraryMember {
         return borrowedBooks;
     }
 
-    // Methods to borrow and return books
+
     public void borrowBook(Book book) {
         if (book.isAvailable()) {
             borrowedBooks.add(book);
@@ -112,7 +112,7 @@ class LibraryMember {
         }
     }
 
-    // Overriding toString method
+    
     @Override
     public String toString() {
         return "LibraryMember{" +
@@ -123,18 +123,17 @@ class LibraryMember {
     }
 }
 
-// Class representing the Library
 class Library {
     private List<Book> books;
     private List<LibraryMember> members;
 
-    // Constructor
+    
     public Library() {
         this.books = new ArrayList<>();
         this.members = new ArrayList<>();
     }
 
-    // Methods to add and remove books
+    
     public void addBook(Book book) {
         books.add(book);
         System.out.println(book.getTitle() + " added to the library.");
@@ -148,7 +147,7 @@ class Library {
         }
     }
 
-    // Methods to add and remove members
+
     public void addMember(LibraryMember member) {
         members.add(member);
         System.out.println(member.getName() + " is now a library member.");
@@ -162,7 +161,7 @@ class Library {
         }
     }
 
-    // Overriding toString method
+
     @Override
     public String toString() {
         return "Library{" +
@@ -172,33 +171,33 @@ class Library {
     }
 }
 
-// Main class to test the system
+
 public class LibraryManagementSystem {
     public static void main(String[] args) {
         // Creating library
         Library library = new Library();
 
-        // Adding books
+    
         Book book1 = new Book("1984", "George Orwell", "123456789");
         Book book2 = new Book("To Kill a Mockingbird", "Harper Lee", "987654321");
         library.addBook(book1);
         library.addBook(book2);
 
-        // Adding members
+        
         LibraryMember member1 = new LibraryMember("Alice", 1);
         LibraryMember member2 = new LibraryMember("Bob", 2);
         library.addMember(member1);
         library.addMember(member2);
 
-        // Borrowing books
+    
         member1.borrowBook(book1);
         member2.borrowBook(book1);
 
-        // Returning books
+    
         member1.returnBook(book1);
         member2.borrowBook(book1);
 
-        // Printing library state
+        
         System.out.println(library);
     }
 }
